@@ -10,7 +10,6 @@ class App {
     public loadDatabase(): void {
         console.log("App Database 연결")
         Database.init();
-        console.log(Database.query("SELECT * FROM USERS"));
     }
 
 }

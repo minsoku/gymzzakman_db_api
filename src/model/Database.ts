@@ -19,10 +19,16 @@ class Database {
         return this.pool;
     }
 
-    public static async query<T>(query: string, values?: any[]): Promise<T> {
+    public static async insertQuery<T>(query: string, values: string[]): Promise<T[]> {
         const pool = await this.init();
-        const [rows] = await pool.query<T[]>(query, values);
-        return rows;
+        return new Promise((resolve, reject) => {
+            pool.query(query, values, (err, res) => {
+                if (err) {
+                    return reject(err);
+                }
+                return resolve(res as T[]);
+            })
+        })
     }
 }
 

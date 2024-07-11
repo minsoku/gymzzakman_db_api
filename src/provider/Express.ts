@@ -10,9 +10,14 @@ class Express {
     constructor() {
         this.express = express();
 
+        this.mountMiddleware();
         this.mountDotEnv();
         this.mountRoutes();
-        this.mountMiddleware();
+    }
+
+
+    private mountMiddleware (): void {
+        this.express = Middleware.init(this.express);
     }
 
     private mountDotEnv (): void {
@@ -20,12 +25,9 @@ class Express {
     }
 
     private mountRoutes (): void {
-        this.express = Routes.birds(this.express);
+        this.express = Routes.Auth(this.express);
     }
 
-    private mountMiddleware (): void {
-        this.express = Middleware.init(this.express);
-    }
 
     public init(): any {
         const port: number = Envs.config().PORT || 4000;

@@ -1,10 +1,10 @@
 import { Application } from "express";
 
-import birds from "../routes/birds";
+import Auth from "../routes/Auth";
 
 class Routes {
-    public birds(_express: Application): Application {
-        return _express.use('/birds', birds);
+    public Auth (_express: Application): Application {
+        return _express.use('/auth', Auth)
     }
 }
 
