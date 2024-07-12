@@ -6,7 +6,6 @@ class RegisterEamil {
         try {
             const { name, nickname, email, password, phoneNumber, profileImage } = req.body;
             const result = await Database.insertQuery(`INSERT INTO USERS (name, nickname, email, password,  phoneNumber, profileImage) VALUES (?, ?, ?, ?, ?, ?)`, [name, nickname, email, password,  phoneNumber, profileImage]);
-            console.log(result);
             return res.send(result)
         } catch(error) {
             console.error(error);
