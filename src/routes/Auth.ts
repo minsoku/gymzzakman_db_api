@@ -1,5 +1,5 @@
 import express from 'express';
-import RegisterEamil from '../controller/RegisterEmail';
+import RegisterEmail from '../controller/RegisterEmail';
 
 const router = express.Router();
 
@@ -8,6 +8,6 @@ router.use(function timeLog(req, res, next) {
     next();
 });
 
-router.post('/register/email', RegisterEamil.postEmail);
+router.post('/register/email', RegisterEmail.Post);
 
 export default router;

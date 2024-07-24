@@ -26,6 +26,8 @@ class Express {
 
     private mountRoutes (): void {
         this.express = Routes.Auth(this.express);
+        this.express = Routes.Community(this.express);
+        this.express = Routes.Comment(this.express);
     }
 
 

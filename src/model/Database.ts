@@ -19,7 +19,7 @@ class Database {
         return this.pool;
     }
 
-    public static async insertQuery<T>(query: string, values: string[]): Promise<T[]> {
+    public static async Query<T>(query: string, values: string[]): Promise<T[]> {
         const pool = await this.init();
         return new Promise((resolve, reject) => {
             pool.query(query, values, (err, res) => {
@@ -30,6 +30,7 @@ class Database {
             })
         })
     }
+
 }
 
 export default Database;
